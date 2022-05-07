@@ -2,9 +2,9 @@
 
 Tired of asking what version is running in QA/UAT/PROD? Make your life simple through the actuator/info and git-commit-id plugin.
 
-If you are in a hurry, there are only four changes you have to make to expose git commit sha over actuator/info endpoint.
+There are only four simple changes you have to make to expose git commit sha over actuator/info endpoint.
 
-1. Add following dependency to your application pom.xml
+1. Add following dependency to application's [pom.xml](https://github.com/sanjuthomas/spring-boot-maven-git-info/blob/main/pom.xml#L32)
 
 ```
     <dependency>
@@ -13,13 +13,13 @@ If you are in a hurry, there are only four changes you have to make to expose gi
     </dependency> 
 ```
 
-2. Enable Spring actuator/info endpoint through adding following configuration to your application.yml file
+2. Enable Spring actuator/info endpoint through adding following configuration to [application.yml](https://github.com/sanjuthomas/spring-boot-maven-git-info/blob/main/src/main/resources/application.yaml#L1) file
 
 ```
     management.endpoints.web.exposure.include: info
 ```
 
-3. Add ```io.github.git-commit-id``` plugin to your application pom.xml
+3. Add ```io.github.git-commit-id``` plugin to your application [pom.xml](https://github.com/sanjuthomas/spring-boot-maven-git-info/blob/main/pom.xml#L40)
 
 ```
     <plugin>
@@ -47,16 +47,14 @@ If you are in a hurry, there are only four changes you have to make to expose gi
      </plugin>
 ```
 
-4. To generate build information add an execution block under ```spring-boot-maven-plugin```
+4. To generate build information add an execution block under ```spring-boot-maven-plugin``` in the [pom.xml](https://github.com/sanjuthomas/spring-boot-maven-git-info/blob/main/pom.xml#L66)
 
 ```
-    <executions>
-        <execution>
-            <goals>
-                <goal>build-info</goal>
-            </goals>
-        </execution>
-    </executions>
+    <execution>
+        <goals>
+            <goal>build-info</goal>
+        </goals>
+    </execution>   
 ```
 
 We are done! Check out your application's actuator/info endpoint. You should see a JSON like the following - 
