@@ -9,11 +9,13 @@ If you are in a hurry, there are only four changes you have to make expose git c
 ```<dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
-    </dependency>```
+    </dependency> 
+```
 
 2. Enable Spring actuator/info endpoint through adding folowing configration to your application.yml file - 
 
-```management.endpoints.web.exposure.include: info```
+```management.endpoints.web.exposure.include: info
+```
 
 3. Add o.github.git-commit-id plugin 
 
@@ -39,15 +41,17 @@ If you are in a hurry, there are only four changes you have to make expose git c
           </includeOnlyProperties>
           <commitIdGenerationMode>full</commitIdGenerationMode>
         </configuration>
-      </plugin>```
+      </plugin>
+```
 
 4. To generate build inforation add an excution block under spring-boot-maven-plugin
 
 ```<executions>
-          <execution>
-            <goals>
-              <goal>build-info</goal>
-            </goals>
-          </execution>
-        </executions>```
+      <execution>
+         <goals>
+            <goal>build-info</goal>
+         </goals>
+      </execution>
+   </executions>
+```
 
