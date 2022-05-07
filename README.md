@@ -1,10 +1,10 @@
 ## Git commit sha over Spring boot actuator info [maven project example]
 
-Tired of asking what version is running in QA/Production? Make your life simple through actuator/info and git-commit-id plugin.
+Tired of asking what version is running in QA/Production? Make your life simple through the actuator/info and git-commit-id plugin.
 
-If you are in a hurry, there are only four changes you have to make expose git commit sha over actuator/info endpoint
+If you are in a hurry, there are only four changes you have to make to expose git commit sha over actuator/info endpoint.
 
-1. Add following dependency to your application - 
+1. Add following dependency to your application pom.xml
 
 ```
     <dependency>
@@ -13,13 +13,13 @@ If you are in a hurry, there are only four changes you have to make expose git c
     </dependency> 
 ```
 
-2. Enable Spring actuator/info endpoint through adding following configuration to your application.yml file - 
+2. Enable Spring actuator/info endpoint through adding following configuration to your application.yml file
 
 ```
     management.endpoints.web.exposure.include: info
 ```
 
-3. Add o.github.git-commit-id plugin 
+3. Add ```io.github.git-commit-id``` plugin to your application pom.xml
 
 ```
     <plugin>
@@ -47,7 +47,7 @@ If you are in a hurry, there are only four changes you have to make expose git c
      </plugin>
 ```
 
-4. To generate build information add an execution block under spring-boot-maven-plugin
+4. To generate build information add an execution block under ```spring-boot-maven-plugin```
 
 ```
     <executions>
@@ -57,5 +57,23 @@ If you are in a hurry, there are only four changes you have to make expose git c
             </goals>
         </execution>
     </executions>
+```
+
+We are done! Check out your application's actuator/info endpoint. You should see a JSON like the following - 
+
+```
+{
+   "git":{
+      "commit":{
+         "id":"6416973"
+      }
+   },
+   "build":{
+      "artifact":"spring-boot-maven-git-info",
+      "name":"spring-boot-maven-git-info",
+      "time":"2022-05-07T23:25:40.010Z",
+      "version":"1.0-SNAPSHOT",
+      "group":"org.sanjuthomas"
+   }
 ```
 
