@@ -62,11 +62,11 @@ If you are in a hurry, there are only four changes you have to make to expose gi
 We are done! Check out your application's actuator/info endpoint. You should see a JSON like the following - 
 
 ```
-{
-   "git":{
-      "commit":{
-         "id":"6416973"
-      }
+    {
+        "git":{
+            "commit":{
+            "id":"6416973"
+        }
    },
    "build":{
       "artifact":"spring-boot-maven-git-info",
