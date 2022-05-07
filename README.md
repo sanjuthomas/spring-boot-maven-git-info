@@ -1,6 +1,6 @@
 ## Git commit sha over Spring boot actuator info [maven project example]
 
-Tired of asking what version is running in QA/Production? Make your life simple through the actuator/info and git-commit-id plugin.
+Tired of asking what version is running in QA/UAT/PROD? Make your life simple through the actuator/info and git-commit-id plugin.
 
 If you are in a hurry, there are only four changes you have to make to expose git commit sha over actuator/info endpoint.
 
